@@ -26,6 +26,10 @@
         margin-left: 5%;
       }
 
+      h1 {
+        cursor: pointer;
+      }
+
       li, p, input, a {
         margin-left: 5%;
       }
@@ -36,10 +40,11 @@
 
   <body>
   <div class="container">
-    <header onclick="makeItClickable(event)">
+    <header>
       <div>
-        <h1>This is the title of the page</h1>
+        <h1 onclick="makeItClickable(event)">This is the title of the page</h1>
         <input type="text" placeholder="Change the Title" onkeyup="changeTitle(event)" id="titleInput">
+        <br>
         <h2>This is the subtitle of the page</h2>
         <input type="button" value="Add Class to Subtitle" onclick="addClassToSubtitle()">
         <input type="button" value="Add a paragraph to the first div" onclick=" addParagraph('Hello, this is a paragraph!')">
