@@ -85,7 +85,7 @@
       <br>
       
       <div>
-        <input type="text" id="input-field" placeholder="input field for the exercise" onkeyup="printAfterKeystroke(event)"/>
+        <input type="text" id="input-field" placeholder="input field for the exercise"/>
       </div>
     </div>
 
@@ -215,7 +215,7 @@
       const makeItClickable = function () {
         let header = document.getElementsByTagName("h1")[0];
         header.addEventListener("click", function(event){
-          event.target.style.color = `rgb(${randomColor()})`;
+        event.target.style.color = `rgb(${randomColor()})`;
         })
       }
 
@@ -242,9 +242,12 @@
 
       const inputField = document.getElementById("input-field");
       function printAfterKeystroke(eventData) {
-        let inputFieldValue = document.getElementById("input-field").value;
-        console.log(eventData.key);
+       inputField.addEventListener("keyup", function(event){
+        console.log(event.key)
+       })
       }
+
+      printAfterKeystroke();
 
       /* EXERCISE 12
       Create a welcome alert message when the page successfully loads.
