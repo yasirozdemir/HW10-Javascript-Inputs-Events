@@ -33,7 +33,6 @@
       li, p, input, a {
         margin-left: 5%;
       }
-      
 
     </style>
   </head>
@@ -42,7 +41,7 @@
   <div class="container">
     <header>
       <div>
-        <h1 onclick="makeItClickable(event)">This is the title of the page</h1>
+        <h1>This is the title of the page</h1>
         <input type="text" placeholder="Change the Title" onkeyup="changeTitle(event)" id="titleInput">
         <br>
         <h2>This is the subtitle of the page</h2>
@@ -95,7 +94,7 @@
     <footer>
       <div>
         <p>And this text is just for the exercise too!</p>
-        <h2 style="color: red; cursor: pointer" onclick="changeFooterText(event)">
+        <h2 style="color: red; cursor: pointer">
           Save this page on your computer and open it with VSCode to get the
           questions!
         </h2>
@@ -213,19 +212,29 @@
         return [r, g, b];
       }
 
-      const makeItClickable = function (eventData) {
-        let heading = eventData.target;
-        heading.style.color = `rgba(${randomColor()})`;
+      const makeItClickable = function () {
+        let header = document.getElementsByTagName("h1")[0];
+        header.addEventListener("click", function(event){
+          event.target.style.color = `rgb(${randomColor()})`;
+        })
       }
 
+      makeItClickable();
+
+  
       /* EXERCISE 10
       Change the footer text with something else when the user clicks on it.
       */
 
-      const changeFooterText = function (eventData) {
-        let footerText = eventData.target;
-        footerText.innerText = "This is the changed footer text.";
-      };
+      const changeFooterText = function () {
+        let footerText = document.querySelector("footer h2");
+        footerText.addEventListener("click", function(event){
+          event.target.innerText = "This is the new version of the footer.";
+        })
+      }
+
+      changeFooterText();
+
 
       /* EXERCISE 11
       Attach an event listener to the input field in the page for console logging its value just after any keystroke.
